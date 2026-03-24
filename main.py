@@ -1,3 +1,4 @@
+from reports.save import save_report
 from listener.fetch import fetch_posts
 from analyzer.summarize import summarize_posts
 from analyzer.risk import detect_risks
@@ -19,7 +20,11 @@ def run_agent():
     report = generate_report(summary, risks)
 
     print("\nREPORT\n")
-    print(report)
+print(report)
+
+# Save report
+filepath = save_report(report)
+print(f"\nReport saved to: {filepath}")
 
 
 if __name__ == "__main__":
